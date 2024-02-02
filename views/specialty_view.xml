@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!-- Form View -->
+    <record id="specialty_form_view" model="ir.ui.view">
+            <field name="name">specialty.form.view</field>
+            <field name="model">specialty.reservation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <!-- <field name="name"/>
+                            <field name="show_call_id"/> -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+    </record>
+    
+    <!-- Tree View -->
+    <record id="specialty_tree_view" model="ir.ui.view">
+            <field name="name">specialty.tree.view</field>
+            <field name="model">specialty.reservation</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- <field name="name"/>
+                    <field name="show_call_id"/> -->
+                </tree>
+            </field>
+    </record>
+    
+    
+    <record id="action_specialty" model="ir.actions.act_window">
+        <field name="name">Especialidades</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">specialty.reservation</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem
+        id="specialty_management"
+        name="Especialidades"
+        action="action_specialty"
+        parent="medical_reservation_root"
+        sequence="15"/>
+</odoo>

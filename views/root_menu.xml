@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <!-- Root Menu of Medical Reservation App-->
+    <menuitem
+        id="medical_reservation_root"
+        name="Reservaciones Medicas"
+        web_icon="medical_reservations,static/description/icon.png"
+        sequence="0"/>
+</odoo>
