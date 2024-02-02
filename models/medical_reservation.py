@@ -7,7 +7,7 @@ class medicalReservation(models.Model):
     name = fields.Char(string='Nombre del cliente', required=True)
     last_name = fields.Char(string='Apellido', required=True)
     identification_card = fields.Char(string='Cedula', required=True)
-    doctor_id = fields.Many2one('doctor.appointment', string='Doctor a reservar')
+    doctor_id = fields.Many2one('doctor.reservation', string='Doctor a reservar')
     date_from = fields.Float(string="Horario de entrada")
     date_to = fields.Float(string="Horario de salida")
     health_insurance = fields.Char(string="Seguro Medico")

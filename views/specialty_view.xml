@@ -8,8 +8,8 @@
                 <form>
                     <sheet>
                         <group>
-                            <!-- <field name="name"/>
-                            <field name="show_call_id"/> -->
+                            <field name="name"/>
+                            <field name="specialty_area"/>
                         </group>
                     </sheet>
                 </form>
@@ -22,8 +22,8 @@
             <field name="model">specialty.reservation</field>
             <field name="arch" type="xml">
                 <tree>
-                    <!-- <field name="name"/>
-                    <field name="show_call_id"/> -->
+                    <field name="name"/>
+                    <field name="specialty_area"/>
                 </tree>
             </field>
     </record>

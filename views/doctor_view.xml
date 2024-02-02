@@ -8,8 +8,12 @@
                 <form>
                     <sheet>
                         <group>
-                            <!-- <field name="name"/>
-                            <field name="show_call_id"/> -->
+                            <field name="name"/>
+                            <field name="last_name"/>
+                            <field name="identification"/>
+                            <field name="specialty_ids" widget="many2many_tags"/>
+                            <field name="date_from" widget="float_time"/>
+                            <field name="date_to" widget="float_time"/>
                         </group>
                     </sheet>
                 </form>
@@ -22,8 +26,12 @@
             <field name="model">doctor.reservation</field>
             <field name="arch" type="xml">
                 <tree>
-                    <!-- <field name="name"/>
-                    <field name="show_call_id"/> -->
+                    <field name="name"/>
+                    <field name="last_name"/>
+                    <field name="identification"/>
+                    <field name="specialty_ids" widget="many2many_tags"/>
+                    <field name="date_from" widget="float_time"/>
+                    <field name="date_to" widget="float_time"/>
                 </tree>
             </field>
     </record>
