@@ -2,14 +2,20 @@
 <odoo>
     <!-- Form View -->
     <record id="medical_reservation_form_view" model="ir.ui.view">
-            <field name="name">booking.form.view</field>
+            <field name="name">medical.reservation.form.view</field>
             <field name="model">medical.reservation</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
                         <group>
-                            <!-- <field name="name"/>
-                            <field name="show_call_id"/> -->
+                            <field name="name"/>
+                            <field name="last_name"/>
+                            <field name="identification_card"/>
+                            <field name="doctor_id"/>
+                            <field name="date_from" widget="float_time"/>
+                            <field name="date_to" widget="float_time"/>
+                            <field name="health_insurance"/>
+                            <field name="comment"/>
                         </group>
                     </sheet>
                 </form>
@@ -18,12 +24,18 @@
     
     <!-- Tree View -->
     <record id="medical_reservation_tree_view" model="ir.ui.view">
-            <field name="name">booking.tree.view</field>
+            <field name="name">medical.reservation.tree.view</field>
             <field name="model">medical.reservation</field>
             <field name="arch" type="xml">
                 <tree>
-                    <!-- <field name="name"/>
-                    <field name="show_call_id"/> -->
+                    <field name="name"/>
+                    <field name="last_name"/>
+                    <field name="identification_card"/>
+                    <field name="doctor_id"/>
+                    <field name="date_from" widget="float_time"/>
+                    <field name="date_to" widget="float_time"/>
+                    <field name="health_insurance"/>
+                    <field name="comment"/>
                 </tree>
             </field>
     </record>
