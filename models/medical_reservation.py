@@ -39,3 +39,17 @@ class medicalReservation(models.Model):
             if duplicate:
                 raise ValidationError(
                     "Ya existe una cita agendada con ese doctor en ese rango de hora, por favor elegir otro horario")
+
+    # Convert the date_to and date_from fields of doctors model (this fields are stored in float type) to 00:00 String
+
+    @api.constrains('date_from', 'date_to', 'doctor_id')
+    def _check_doctor_schedule(self):
+        for record in self:
+            float_date_from = (record.date_from.hour + record.date_from.minute / 60)
+            float_date_to = (record.date_to.hour + record.date_to.minute / 60)
+            record.write({
+                'comment': f"Horarios {float_date_from} y {float_date_to}.",
+            })
+            # if (float_date_from < record.doctor_id.date_from) or (float_date_to > record.doctor_id.date_to):
+            #     raise ValidationError(
+            #         "El doctor no cubre el horario seleccionado para la cita, por favor elegir otro horario")
