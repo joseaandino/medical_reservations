@@ -4,7 +4,7 @@
     <!-- Root Menu of Medical Reservation App-->
     <menuitem
         id="medical_reservation_root"
-        name="Reservaciones Medicas"
+        name="Citas Medicas"
         web_icon="medical_reservations,static/description/icon.png"
         sequence="0"/>
 </odoo>

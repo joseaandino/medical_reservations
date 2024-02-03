@@ -20,7 +20,7 @@
 #
 ##############################################################################
 {
-    "name": "Medical Reservations",
+    "name": "Citas Medicas",
     "version": "1.0",
     "description": "Modulo para gestion y control de citas medicas con doctores y especialidades",
     "author": "Jose Antonio Andino",
