@@ -45,11 +45,13 @@ class medicalReservation(models.Model):
     @api.constrains('date_from', 'date_to', 'doctor_id')
     def _check_doctor_schedule(self):
         for record in self:
-            float_date_from = (record.date_from.hour + record.date_from.minute / 60)
-            float_date_to = (record.date_to.hour + record.date_to.minute / 60)
-            record.write({
-                'comment': f"Horarios {float_date_from} y {float_date_to}.",
-            })
-            # if (float_date_from < record.doctor_id.date_from) or (float_date_to > record.doctor_id.date_to):
-            #     raise ValidationError(
-            #         "El doctor no cubre el horario seleccionado para la cita, por favor elegir otro horario")
+            # the function fields.Datetime.context_timestamp convert a datetime field to the utc of the logged user
+            utc_date_from = fields.Datetime.context_timestamp(
+                self, record.date_from)
+            utc_date_to = fields.Datetime.context_timestamp(
+                self, record.date_to)
+            float_date_from = (utc_date_from.hour + utc_date_from.minute / 60)
+            float_date_to = (utc_date_to.hour + utc_date_to.minute / 60)
+            if (float_date_from < record.doctor_id.date_from) or (float_date_to > record.doctor_id.date_to):
+                raise ValidationError(
+                    "El doctor no cubre el horario seleccionado para la cita, por favor elegir otro horario")
