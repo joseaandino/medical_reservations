@@ -19,7 +19,6 @@ class medicalReservation(models.Model):
     comment = fields.Char(string="Comentario")
 
     # Function to Generate a random integer with 8 digits, this is going to be use for generate the code of the reservation.
-
     @api.model
     def _generate_reservation_code(self):
         return str(random.randint(10**7, 10**8 - 1))
@@ -39,8 +38,6 @@ class medicalReservation(models.Model):
             if duplicate:
                 raise ValidationError(
                     "Ya existe una cita agendada con ese doctor en ese rango de hora, por favor elegir otro horario")
-
-    # Convert the date_to and date_from fields of doctors model (this fields are stored in float type) to 00:00 String
 
     @api.constrains('date_from', 'date_to', 'doctor_id')
     def _check_doctor_schedule(self):
